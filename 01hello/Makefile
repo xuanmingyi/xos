@@ -6,7 +6,7 @@ hello.img:boot.bin
 
 boot.bin:boot.S
 	@as boot.S -o boot.o
-	@ld --oformat binary -o boot.bin -Ttext 0x7c00 boot.o
+	@ld --oformat binary -o boot.bin -T boot.ld boot.o
 
 
 clean:boot.o

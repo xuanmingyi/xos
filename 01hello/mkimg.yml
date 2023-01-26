@@ -1,0 +1,7 @@
+# 输出文件
+output: hello.img
+
+files:
+    # MBR
+    - file: boot.bin
+      offset: 0

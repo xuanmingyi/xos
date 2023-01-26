@@ -5,3 +5,7 @@ files:
     # MBR
     - file: build/boot.bin
       offset: 0
+
+    # loader
+    - file: build/loader.bin
+      offset: 512

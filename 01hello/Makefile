@@ -6,10 +6,10 @@ run:$(TARGET)hello.img
 $(TARGET)hello.img:$(TARGET)boot.bin
 	@mkimg
 
-$(TARGET)boot.bin:boot.o boot.S
+$(TARGET)boot.bin:boot.S
 	@mkdir -p $(TARGET)
 	@as boot.S -o $(TARGET)boot.o
 	@ld --oformat binary -o $(TARGET)boot.bin -T boot.ld $(TARGET)boot.o
 
 clean:$(TARGET)boot.o $(TARGET)boot.bin $(TARGET)hello.img
-	@rm -rf $(TARGET)boot.o $(TARGET)boot.bin $(TARGET)hello.img
+	@rm -rf $(TARGET)

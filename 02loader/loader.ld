@@ -1,9 +1,9 @@
 SECTIONS
 {
-	. = 0x7c00;
+	. = 0x7e00;
 	.text :
 	{
-		_boot = .;
+		_start = .;
 		*(.text)
 	}
 }

@@ -1,9 +1,9 @@
 SECTIONS
 {
-	. = 0x7c00;
+	. = 0xc0001500;
 	.text :
 	{
-		_start = .;
+		kernel_main = .;
 		*(.text)
 	}
 }

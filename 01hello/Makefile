@@ -4,12 +4,12 @@ run:$(TARGET)hello.img
 	@qemu-system-i386  -m 16m -rtc base=localtime -vga std -drive file=$(TARGET)hello.img,format=raw
 
 $(TARGET)hello.img:$(TARGET)boot.bin
-	@mkimg
+	@dd if=$(TARGET)boot.bin of=$(TARGET)hello.img bs=512 count=1
+	@dd if=/dev/zero of=$(TARGET)hello.img bs=512 count=20479 seek=512
 
-$(TARGET)boot.bin:boot.S
+$(TARGET)boot.bin:boot.nas
 	@mkdir -p $(TARGET)
-	@as boot.S -o $(TARGET)boot.o
-	@ld --oformat binary -o $(TARGET)boot.bin -T boot.ld $(TARGET)boot.o
+	@nasm boot.nas -o $(TARGET)boot.bin -f bin
 
-clean:$(TARGET)boot.o $(TARGET)boot.bin $(TARGET)hello.img
+clean:$(TARGET)boot.bin $(TARGET)hello.img
 	@rm -rf $(TARGET)

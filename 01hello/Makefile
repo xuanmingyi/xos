@@ -5,7 +5,7 @@ run:$(TARGET)hello.img
 
 $(TARGET)hello.img:$(TARGET)boot.bin
 	@dd if=$(TARGET)boot.bin of=$(TARGET)hello.img bs=512 count=1
-	@dd if=/dev/zero of=$(TARGET)hello.img bs=512 count=20479 seek=512
+	@dd if=/dev/zero of=$(TARGET)hello.img bs=512 count=20479 seek=1
 
 $(TARGET)boot.bin:boot.nas
 	@mkdir -p $(TARGET)

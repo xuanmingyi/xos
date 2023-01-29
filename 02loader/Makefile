@@ -6,7 +6,7 @@ run:$(TARGET)hello.img
 $(TARGET)hello.img:$(TARGET)boot.bin $(TARGET)loader.bin
 	@dd if=$(TARGET)boot.bin of=$(TARGET)hello.img bs=512 count=1
 	@dd if=$(TARGET)loader.bin of=$(TARGET)hello.img bs=512 count=1 seek=1
-	@dd if=/dev/zero of=$(TARGET)hello.img bs=512 count=20478 seek=1024
+	@dd if=/dev/zero of=$(TARGET)hello.img bs=512 count=20478 seek=2
 
 $(TARGET)boot.bin:boot.nas loader.nas
 	@mkdir -p $(TARGET)

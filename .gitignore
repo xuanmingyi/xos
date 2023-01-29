@@ -1,4 +1,4 @@
 build
 hello.img
-boot.o
-boot.bin
+*.o
+*.bin
